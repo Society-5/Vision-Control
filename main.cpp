@@ -7,17 +7,18 @@
 int main (int argc, char* argv[])
 {
 	VideoCapture cap;
-	if (!cap.open (0))
+
+	if (!cap.open ("http://172.16.0.165:8080/video"))
         return 0;
 
 	for (;;) {
 
-		// Read image
 		Mat im;
 
+		// Read image
 		cap >> im;
 
-		if (frame.empty ()) break; // end of video stream
+		if (im.empty ()) break; // end of video stream
 
 		// Variable for decoded objects 
 		vector <decodedObject> decodedObjects;
